@@ -1,0 +1,43 @@
+{% extends 'acceuil.html' %}
+{% block title %} Nos produits {% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-dark">
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Catégorie</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for elmt in prods %}
+        <tr>
+            <td><img src="/static/images/{{ elmt.image }}" width="90" height="90"></td>
+            <td>{{ elmt.name }}</td>
+            <td>{{ elmt.category }}</td>
+            <td>{{ elmt.price }}</td>
+        </tr>
+        {% endfor %}
+        {% comment %}
+        solution atelier 3
+        {% for elmt in prods %}
+        <tr>
+            <td>{{ elmt|get_val:'image' }}</td>
+            <td>{{ elmt|get_val:'name' }}</td>
+            <td>{{ elmt|get_val:'category' }}</td>
+            <td>{{ elmt|get_val:'price' }}</td>
+            {% for cle,val in elmt.items %}
+                {% if cle == 'image' or cle == 'name' or cle == 'category' or cle == 'price' %}
+                    <td>{{ val }}</td>
+                {% endif %}
+            {% endfor %}
+
+        </tr>
+        {% endfor %}
+        {% endcomment %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

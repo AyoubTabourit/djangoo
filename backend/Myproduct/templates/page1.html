@@ -1,0 +1,20 @@
+{% extends 'acceuil.html' %}
+{% block title %}Page Accueil {% endblock %}
+{% block content%}
+
+</div>
+    <div class="container mt-3 mb-5">
+        <div class="jumbotron mt-5">
+          <h1 class="display-4">Bienvenue sur Myproduct</h1>
+          <p class="lead">Nous mettons à votre disposition un large choix de produits.</p>
+          <hr class="my-4">
+          <p> Vous voulez découvrir nos produits!!</p>
+            <p class="lead">
+  <a class="btn btn-primary" href="{% url 'listProduit' %}" role="button">Voir tout nos produits</a>
+</p>
+
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

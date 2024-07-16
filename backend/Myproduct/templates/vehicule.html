@@ -1,0 +1,46 @@
+{% extends 'acceuil.html' %}
+{% block title %}Page vehicule{% endblock %}
+{% block content%}
+<div class="container mt-5">
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-dark">
+                <th>Nom</th>
+                <th>Catégorie</th>
+                <th>Prix</th>
+                <th>image</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for elmt in context %}
+        <tr>
+            <td>{{ elmt.name }}</td>
+            <td>{{ elmt.category }}</td>
+            <td>{{ elmt.price }}</td>
+            <td>{{ elmt.image }}</td>
+
+
+        </tr>
+        {% endfor %}
+        {% comment %}
+        solution atelier 3
+        {% for elmt in context %}
+        <tr>
+            <td>{{ elmt|get_val:'name' }}</td>
+            <td>{{ elmt|get_val:'category' }}</td>
+            <td>{{ elmt|get_val:'price' }}</td>
+            <td>{{ elmt|get_val:'image' }}</td>
+            {% for cle,val in elmt.items %}
+                {% if val == 'name' or val.category == 'voiture' or val == 'price' or val == 'image' %}
+                    <td>{{ val }}</td>
+                {% endif %}
+            {% endfor %}
+
+        </tr>
+        {% endfor %}
+        {% endcomment %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
